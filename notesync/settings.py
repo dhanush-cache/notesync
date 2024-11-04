@@ -76,11 +76,29 @@ WSGI_APPLICATION = "notesync.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
+# settings.py
+
 DATABASES = {
     "default": {
+        "ENGINE": "django.db.backends.postgresql",
+        "NAME": "notesyncdb",
+        "USER": "notesyncadmin",
+        "PASSWORD": "password",
+        "HOST": "localhost",
+        "PORT": "5432",
+    },
+    "secondary": {
+        "ENGINE": "django.db.backends.mysql",
+        "NAME": "notesyncdb",
+        "USER": "root",
+        "PASSWORD": "password",
+        "HOST": "localhost",
+        "PORT": "3306",
+    },
+    "lite": {
         "ENGINE": "django.db.backends.sqlite3",
         "NAME": BASE_DIR / "db.sqlite3",
-    }
+    },
 }
 
 

@@ -8,11 +8,14 @@ django = "*"
 djangorestframework = "*"
 django-filter = "*"
 drf-nested-routers = "*"
+psycopg2-binary = "*"
+mysqlclient = "*"
 
 [dev-packages]
 django-debug-toolbar = "*"
 black = "*"
 isort = "*"
+faker = "*"
 
 [requires]
 python_version = "*"
