@@ -36,7 +36,7 @@ def populate_chapters(n):
     query_set = models.Subject.objects.only("pk")
     for _ in range(n):
         chapter = models.Chapter()
-        chapter.chapter_no = random.randint(1, 100)
+        chapter.chapter_no = random.randint(1, 10)
         chapter.name = fake.name()
         chapter.summary = fake.sentence()
         chapter.subject = random.choice(query_set)

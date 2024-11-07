@@ -38,6 +38,7 @@ class Student(models.Model):
     last_name = models.CharField(max_length=255)
     email = models.CharField(max_length=255)
     university = models.CharField(max_length=255)
+    courses = models.ManyToManyField(Course, through="Enrollment")
 
     def __str__(self) -> str:
         return f"{self.first_name} {self.last_name}"
