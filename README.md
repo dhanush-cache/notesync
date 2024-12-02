@@ -20,6 +20,7 @@ Ensure you have the following installed:
 2. Install dependencies:
    ```bash
    pipenv install
+   pipenv install --dev
    ```
 
 3. Activate the virtual environment:
