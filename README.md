@@ -1,7 +1,7 @@
 
-# Django Project
+# Notesync
 
-A simple Django project.
+The API for a simple note-sharing application.
 
 ## Setup Instructions
 
