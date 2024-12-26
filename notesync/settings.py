@@ -85,7 +85,7 @@ DATABASES = {
         "NAME": "notesyncdb",
         "USER": "notesyncadmin",
         "PASSWORD": "password",
-        "HOST": "localhost",
+        "HOST": "db",
         "PORT": "5432",
     },
     "secondary": {

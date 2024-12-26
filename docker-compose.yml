@@ -1,0 +1,36 @@
+services:
+  db:
+    image: postgres:latest
+    container_name: postgres
+    environment:
+      POSTGRES_USER: notesyncadmin
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: notesyncdb
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U notesyncadmin -d notesyncdb"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+    ports:
+      - "5432:5432"
+    volumes:
+      - notesync:/var/lib/postgresql/data
+
+  api:
+    build: .
+    ports:
+      - "8000:8000"
+    depends_on:
+      db:
+        condition: service_healthy
+
+  migrate:
+    build: .
+    depends_on:
+      db:
+        condition: service_healthy
+    command: sh -c "pipenv run python manage.py migrate && pipenv run python -m scripts.seed"
+
+volumes:
+  notesync:
